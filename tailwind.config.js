@@ -45,6 +45,7 @@ module.exports = {
 				130: '39.375rem',
 				100: '65.625rem',
 				101: '40rem',
+				91: '32%',
 			},
 			maxWidth: {
 				'8xl': '88rem',
@@ -52,6 +53,14 @@ module.exports = {
 			},
 			colors: {
 				greys: '#F3F3F3',
+				bgDashboardBtn: 'rgba(80, 62, 157, 1)',
+				bgDashboard: 'rgba(247, 247, 247, 1)',
+				dashboardTextColor: 'rgba(98, 98, 100, 1)',
+				iconColor: 'rgba(251, 109, 58, 1)',
+				iconColorSecondary: 'rgba(251, 109, 58, 0.1)',
+				iconColorPrimary: 'rgba(80, 62, 157, 1)',
+				iconColorTertiry: 'rgba(250, 205, 93, 1)',
+				bgInput: 'rgba(247, 247, 247, 1)',
 			},
 		},
 	},
