@@ -26,12 +26,12 @@ const routes = [
 			},
 			{
 				path: 'favourites',
-				name: 'Favoruite',
+				name: 'Favourites',
 				component: Favorute,
 			},
 			{
 				path: 'order',
-				name: 'Orders',
+				name: 'Order',
 				component: Order,
 			},
 			{

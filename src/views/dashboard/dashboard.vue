@@ -1,13 +1,14 @@
 <template>
 	<div class="flex h-screen">
 		<aside
-			class="dashboard__menu xx:w-28 xs:w-28 lg:w-64 bg-bgDashboard shadow-md p-4"
+			class="dashboard__menu fixed top-0 h-screen z-10 xx:w-28 xs:w-28 lg:w-64 bg-bgDashboard shadow-md p-4"
 		>
 			<header class="flex lg:mb-0 xx:mb-6">
 				<img
 					:src="DashboardHeaderLogo"
 					class="xx:w-6 xx:h-3 lg:w-10 lg:h-8 mx-2"
 					alt="bu dashboard img"
+					loading="lazy"
 				/>
 				<h2 class="text-xl xx:hidden lg:inline-block font-bold mb-6 font-sans">
 					Nibble
@@ -15,25 +16,26 @@
 			</header>
 			<nav>
 				<ul>
-					<li
-						class="flex h-14 items-center cursor-pointer lg:px-2 xx:w-14 xx:justify-center lg:w-full lg:justify-start"
+					<router-link
+						v-for="(link, index) in Links"
+						:key="index"
+						:to="link.name"
+						class="flex items-center h-14 cursor-pointer lg:px-2 xx:w-14 xx:justify-center lg:w-full lg:justify-start"
 						:class="[
-							route.name == link.name
+							route.name === link.name
 								? 'bg-bgDashboardBtn text-white rounded-xl'
 								: 'text-dashboardTextColor',
 						]"
-						v-for="(link, index) in Links"
-						:key="'link' + index"
 					>
-						<component class="w-6 h-6 ml-1 mr-3" :is="icons[link.icon]" />
-						<a href="#" class="text-base font-sans xx:hidden lg:inline-block">{{
+						<component :is="icons[link.icon]" class="w-6 h-6 ml-1 mr-3" />
+						<span class="text-base font-sans xx:hidden lg:inline-block">{{
 							link.name
-						}}</a>
-					</li>
+						}}</span>
+					</router-link>
 				</ul>
 			</nav>
 			<footer class="flex items-center justify-between absolute bottom-2">
-				<img :src="Logo" class="w-12 h-12" alt="logo img" />
+				<img :src="Logo" class="w-12 h-12" alt="logo img" loading="lazy" />
 				<div class="info ml-2 xx:hidden lg:inline-block">
 					<h2 class="font-bold font-sans text-sm">Mark Clarke</h2>
 					<p class="font-normal font-sans text-xs">markclarke@gmail.com</p>
@@ -46,7 +48,7 @@
 		</aside>
 
 		<!-- Main content -->
-		<main class="flex-1 flex flex-col">
+		<main class="flex-1 flex flex-col lg:ml-64 xx:ml-28">
 			<!-- Navbar -->
 			<header class="bg-white p-4">
 				<Header />
@@ -54,16 +56,20 @@
 
 			<!-- Page content -->
 			<main class="px-6">
-				<router-view></router-view>
+				<router-view v-slot="{ Component }">
+					<Suspense>
+						<component :is="Component" />
+					</Suspense>
+				</router-view>
 			</main>
 		</main>
 	</div>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { defineAsyncComponent, reactive } from 'vue';
 import { useRoute } from 'vue-router';
-import Header from '../../components/Header.vue';
+const Header = defineAsyncComponent(() => import('@/components/Header.vue'));
 import DashboardHeaderLogo from '@/assets/images/bread.png';
 import Logo from '@/assets/images/logo.png';
 import {
@@ -91,7 +97,7 @@ let Links = reactive([
 			icon: 'BookmarkIcon',
 		},
 		{
-			name: 'Orders',
+			name: 'Order',
 			icon: 'DocumentArrowDownIcon',
 		},
 		{
@@ -113,6 +119,13 @@ let Links = reactive([
 		Cog6ToothIcon,
 		ChevronUpDownIcon,
 	};
+
+const MenuLinkClick = link => {
+	console.log(link, route.name);
+	if (link == route.name) {
+		console.log(route.name);
+	}
+};
 </script>
 
 <style scoped>

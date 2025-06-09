@@ -23,6 +23,7 @@
 						class="w-full h-44 rounded-2xl"
 						:src="list.img"
 						:alt="list.name"
+						loading="lazy"
 					/>
 					<div class="info flex justify-between items-center my-4">
 						<h4 class="font-sans font-bold">{{ list.title }}</h4>
@@ -56,8 +57,8 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
-import Button from './Button.vue';
+import { defineAsyncComponent, reactive } from 'vue';
+const Button = defineAsyncComponent(() => import('./Button.vue'));
 import burgerImg from '@/assets/images/pitsa2.png';
 import PitsaImg from '@/assets/images/pitsa.png';
 import GrilImg from '@/assets/images/gril.png';

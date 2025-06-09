@@ -1,9 +1,16 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
+import { defineAsyncComponent } from 'vue';
+const HelloWorld = defineAsyncComponent(() =>
+	import('@/components/HelloWorld.vue')
+);
 </script>
 
 <template>
-	<router-view> </router-view>
+	<router-view v-slot="{ Component }">
+		<Suspense>
+			<component :is="Component" />
+		</Suspense>
+	</router-view>
 </template>
 
 <style scoped></style>

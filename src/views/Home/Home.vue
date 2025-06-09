@@ -6,8 +6,13 @@
 </template>
 
 <script setup>
-import Information from '@/components/Information.vue';
-import BurgerList from '@/components/BurgerList.vue';
+import { defineAsyncComponent } from 'vue';
+const BurgerList = defineAsyncComponent(() =>
+	import('@/components/BurgerList.vue')
+);
+const Information = defineAsyncComponent(() =>
+	import('@/components/Information.vue')
+);
 </script>
 
 <style lang="scss" scoped></style>

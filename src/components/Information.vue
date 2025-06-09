@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<header class="relative mb-14">
-			<img :src="Pitsa" alt="Pitsa uchun rasm" />
+			<img :src="Pitsa" alt="Pitsa uchun rasm" loading="lazy" />
 			<div
 				class="logo xx:w-24 xx:h-24 xs:w-24 xs:h-24 lg:w-36 lg:h-36 rounded-2xl bg-gray-200 flex justify-center items-center absolute -bottom-12 left-1/2 transform -translate-x-1/2"
 			>
@@ -9,6 +9,7 @@
 					:src="Logo"
 					class="xx:w-16 xx:h-16 lg:w-24 lg:h-24"
 					alt="Logo img"
+					loading="lazy"
 				/>
 			</div>
 			<div
@@ -65,9 +66,10 @@
 </template>
 
 <script setup>
+import { defineAsyncComponent, reactive } from 'vue';
 import Pitsa from '@/assets/images/pitsa2.png';
 import Logo from '@/assets/images/Logos.png';
-import Button from './Button.vue';
+const Button = defineAsyncComponent(() => import('./Button.vue'));
 import {
 	HeartIcon,
 	StarIcon,
@@ -75,7 +77,6 @@ import {
 	CurrencyDollarIcon,
 	MapPinIcon,
 } from '@heroicons/vue/24/outline';
-import { reactive } from 'vue';
 let icons = reactive({
 		HeartIcon,
 		StarIcon,
