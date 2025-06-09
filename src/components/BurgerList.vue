@@ -1,6 +1,6 @@
 <template>
 	<section>
-		<header class="my-6 flex gap-2">
+		<header class="my-6 flex gap-2 w-full flex-wrap">
 			<Button
 				class="bg-gray-50 font-sans font-normal text-sm first:ml-0"
 				v-for="(btn, index) in Buttons"
@@ -12,12 +12,12 @@
 		</header>
 		<main>
 			<ul
-				class="flex gap-6 xx:flex-col xx:items-center lg:items-center lg:flex-row"
+				class="flex xx:w-5/12 md:w-full gap-6 xx:flex-col xx:items-center lg:items-center lg:flex-row"
 			>
 				<li
 					v-for="(list, index) in BurgerList"
 					:key="'burger' + index"
-					class="lg:w-91 xx:w-11/12"
+					class="lg:w-91 xx:w-11/12 md:w-full"
 				>
 					<img
 						class="w-full h-44 rounded-2xl"

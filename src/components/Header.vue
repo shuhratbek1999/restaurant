@@ -4,7 +4,7 @@
 			<div
 				v-for="(item, index) in menuItems"
 				:key="index"
-				class="xx:hidden xs:hidden lg:flex items-center gap-1 text-sm cursor-pointer hover:text-blue-500"
+				class="xx:hidden xs:hidden md:hidden lg:flex items-center gap-1 text-sm cursor-pointer hover:text-blue-500"
 			>
 				<component
 					:is="icons[item.iconLeft]"
@@ -22,7 +22,7 @@
 		</div>
 		<!-- Qidiruv -->
 		<div
-			class="w-1/2 relative flex items-center lg:justify-between xx:justify-end"
+			class="w-1/2 relative flex items-center lg:justify-between xx:justify-end md:justify-end"
 		>
 			<input
 				type="text"
@@ -31,7 +31,7 @@
 			/>
 			<component
 				:is="icons.MagnifyingGlassIcon"
-				class="w-5 h-5 absolute lg:left-2 xx:left-12"
+				class="w-5 h-5 absolute lg:left-2 xx:left-12 md:left-56"
 			/>
 			<div
 				class="shopping w-12 h-12 flex justify-center items-center bg-iconColor rounded-xl xx:ml-2 lg:ml-0"

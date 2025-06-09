@@ -1,64 +1,75 @@
 <template>
 	<section>
 		<header class="relative mb-14">
-			<img :src="Pitsa" alt="Pitsa uchun rasm" loading="lazy" />
+			<img
+				:src="Pitsa"
+				alt="Pitsa uchun rasm"
+				loading="lazy"
+				class="lg:w-full xx:w-full xx:h-40"
+			/>
+
+			<!-- Logo o'rtada joylashgan -->
 			<div
-				class="logo xx:w-24 xx:h-24 xs:w-24 xs:h-24 lg:w-36 lg:h-36 rounded-2xl bg-gray-200 flex justify-center items-center absolute -bottom-12 left-1/2 transform -translate-x-1/2"
+				class="logo w-24 h-24 xx:w-20 xx:h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 rounded-2xl bg-gray-200 flex justify-center items-center absolute -bottom-12 left-1/2 transform -translate-x-1/2"
 			>
 				<img
 					:src="Logo"
-					class="xx:w-16 xx:h-16 lg:w-24 lg:h-24"
+					class="w-16 h-16 xx:w-14 xx:h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24"
 					alt="Logo img"
 					loading="lazy"
 				/>
 			</div>
+
+			<!-- Yurakcha icon -->
 			<div
-				class="heart absolute top-6 right-6 w-12 h-12 flex justify-center items-center bg-white rounded-lg"
+				class="heart absolute top-4 right-4 w-10 h-10 sm:w-12 sm:h-12 flex justify-center items-center bg-white rounded-lg shadow"
 			>
 				<component :is="icons.HeartIcon" class="w-5 h-5" />
 			</div>
 		</header>
-		<main>
+
+		<main class="mt-20">
+			<!-- Burger haqida ma'lumot -->
 			<article
-				class="burger flex justify-between lg:items-center xx:items-start xx:flex-col lg:flex-row"
+				class="flex flex-col lg:flex-row justify-between lg:items-center gap-4"
 			>
-				<div class="burger__info xx:w-full lg:w-1/2">
-					<h1 class="burger__title font-bold font-sans text-3xl">
-						Burger King
-					</h1>
-					<p
-						class="burger__text lg:text-base text-gray-400 font-sans font-normal my-4"
-					>
+				<div class="lg:w-1/2">
+					<h1 class="text-2xl sm:text-3xl font-bold font-sans">Burger King</h1>
+					<p class="text-gray-400 text-sm sm:text-base font-sans mt-2">
 						It is one of the most iconic and well-recognizable fast food
 						restaurants out there which offers really amazing food and drinks.
 					</p>
 				</div>
-				<div class="buttons flex justify-between items-center">
+
+				<!-- Tugmalar -->
+				<div
+					class="flex flex-wrap justify-start lg:justify-end items-center gap-1 mt-4 lg:mt-0"
+				>
 					<Button
 						class="bg-gray-300 text-iconColorPrimary font-sans font-semibold"
 					>
 						Free delivery
 					</Button>
-					<Button
-						class="bg-iconColorSecondary mx-3 text-iconColor font-semibold"
-					>
+					<Button class="bg-iconColorSecondary text-iconColor font-semibold">
 						Buy 2 get 1 free
 					</Button>
-					<Button class="font-semibold bg-gray-300"> Opens at 12 PM </Button>
+					<Button class="bg-gray-300 font-semibold"> Opens at 12 PM </Button>
 				</div>
 			</article>
-			<div class="burger__list w-7/12 flex justify-between">
+
+			<!-- Burger menu list -->
+			<div class="flex flex-wrap gap-4 mt-6">
 				<div
 					v-for="(item, index) in menuItems"
 					:key="index"
-					class="xx:hidden xs:hidden lg:flex items-center gap-1 text-sm cursor-pointer hover:text-blue-500"
+					class="flex items-center gap-1 text-sm cursor-pointer hover:text-blue-500"
 				>
 					<component
 						:is="icons[item.iconLeft]"
-						class="w-4 h-4 text-iconColor"
+						class="w-4 h-4"
 						:class="item.color"
 					/>
-					{{ item.name }}
+					<span class="text-sm">{{ item.name }}</span>
 				</div>
 			</div>
 		</main>

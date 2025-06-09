@@ -1,9 +1,9 @@
 <template>
 	<div class="flex h-screen">
 		<aside
-			class="dashboard__menu fixed top-0 h-screen z-10 xx:w-28 xs:w-28 lg:w-64 bg-bgDashboard shadow-md p-4"
+			class="dashboard__menu fixed top-0 h-screen z-10 xx:w-20 xs:w-28 md:w-28 lg:w-64 bg-bgDashboard shadow-md p-4"
 		>
-			<header class="flex lg:mb-0 xx:mb-6">
+			<header class="flex lg:mb-0 xx:mb-6 md:mb-4">
 				<img
 					:src="DashboardHeaderLogo"
 					class="xx:w-6 xx:h-3 lg:w-10 lg:h-8 mx-2"
@@ -48,7 +48,7 @@
 		</aside>
 
 		<!-- Main content -->
-		<main class="flex-1 flex flex-col lg:ml-64 xx:ml-28">
+		<main class="flex flex-col lg:ml-64 xx:ml-20 md:ml-28">
 			<!-- Navbar -->
 			<header class="bg-white p-4">
 				<Header />
