@@ -12,7 +12,7 @@
 		</header>
 		<main>
 			<ul
-				class="flex xx:w-5/12 md:w-full gap-6 xx:flex-col xx:items-center lg:items-center lg:flex-row"
+				class="flex xx:w-11/12 md:w-full gap-6 xx:flex-col xx:items-center lg:items-center lg:flex-row"
 			>
 				<li
 					v-for="(list, index) in BurgerList"

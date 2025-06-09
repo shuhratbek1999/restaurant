@@ -31,7 +31,7 @@
 			/>
 			<component
 				:is="icons.MagnifyingGlassIcon"
-				class="w-5 h-5 absolute lg:left-2 xx:left-12 md:left-56"
+				class="w-5 h-5 absolute lg:left-2 xx:left-16 md:left-56"
 			/>
 			<div
 				class="shopping w-12 h-12 flex justify-center items-center bg-iconColor rounded-xl xx:ml-2 lg:ml-0"
